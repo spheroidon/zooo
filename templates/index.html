@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animal Management</title>
+</head>
+<body>
+    <h1>animal Management</h1>
+
+    <form action="/add" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required><br><br>
+
+        <label for="photo">Photo:</label>
+        <input type="text" id="photo" name="photo" required><br><br>
+
+        <input type="submit" value="Add Animal">
+    </form>
+
+    <br>
+
+    <h2>Animal List:</h2>
+    <ul>
+        {% for animal in animals %}
+            <li>{{ animal[1] }} - {{ animal[2] }} ({{ animal[3] }}) <img src="{{  animal[4]  }}" height="50px"> <a href="/delete/{{ animal[0] }}">Delete</a> <a href="/edit/{{ animal[0] }}">Edit</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
